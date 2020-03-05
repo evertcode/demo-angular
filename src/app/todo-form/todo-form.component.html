@@ -1,0 +1,23 @@
+<div>
+    <h2>Formulario registro</h2>
+
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+
+        <label for="title">Title</label>
+        <input [(ngModel)]="todo.title" id="title" name="title" placeholder="Enter title" type="text" required
+            #name="ngModel" />
+
+        <label for="completed">Complete</label>
+        <input [(ngModel)]="todo.completed" id="completed" name="completed" type="checkbox" #name="ngModel" />
+
+        <button type="submit" [disabled]="!todoForm.form.valid">Submit</button>
+
+    </form>
+
+    <div id="info" [hidden]="todoRes.id === 0">
+        <span>Resultado:</span>
+        <span>Id: {{todoRes.id}}</span>
+        <span>Title: {{todoRes.title}}</span>
+    </div>
+
+</div>
